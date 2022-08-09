@@ -18,6 +18,7 @@ function addItem(event){
   if(!repeat){
     items.push(item);
     populateList(items, itemsList);
+    itemsList.scrollTop = itemsList.scrollHeight;
     localStorage.setItem('items', JSON.stringify(items));
   } else {
     alert("This Entry Already Exists");
