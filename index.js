@@ -5,7 +5,7 @@ const selectNone = document.querySelector('[name=selectNone]');
 const deletes = document.querySelector('[name=delete]');
 let items = JSON.parse(localStorage.getItem('items')) || [];
 
-
+/* adds item to list */
 function addItem(event){
   event.preventDefault();
   const text = (this.querySelector('[name=item]')).value;
@@ -25,7 +25,7 @@ function addItem(event){
   this.reset();
 }
 
-
+/* loads in new list */
 function populateList(plates, platesList){
   platesList.innerHTML = plates.map((plate, i) => {
     return `
@@ -37,7 +37,7 @@ function populateList(plates, platesList){
   }).join('');
 }
 
-
+/* toggles checkbox on click */
 function toggleChecked(event) {
   if(!event.target.matches('input')) return;
    const el = event.target;
@@ -47,7 +47,7 @@ function toggleChecked(event) {
    populateList(items, itemsList);
 }
 
-
+/* selects all/none and/or delete */
 function actionButton(event) {
   event.preventDefault();
   let arr = [];
@@ -72,7 +72,7 @@ function actionButton(event) {
   populateList(items, itemsList);
 }
 
-
+/* checks for repeated entries */
 function checkRepeats(objectArr, wordTwo) {
   let count = 0;
   const length = items.length;
